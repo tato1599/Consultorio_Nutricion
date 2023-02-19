@@ -16,7 +16,14 @@ return new class extends Migration
             $table->text('Nombre');
             $table->text('Apellido_Paterno');
             $table->text('Apellido_Materno');
+            $table->integer('Edad');
             $table->date('Fecha_de_nacimiento');
+            $table->integer('Peso');
+            $table->integer('Estatura');
+            $table->text('Telefono');
+            $table->text('Correo_Electronico');
+            $table->text('Antecedentes');
+            $table->text('Antecedentes_Familiares');
             $table->timestamps();
         });
     }

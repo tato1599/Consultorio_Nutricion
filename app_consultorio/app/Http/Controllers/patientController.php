@@ -37,7 +37,14 @@ class patientController extends Controller
         $new->Nombre = $request->input('Nombre');
         $new->Apellido_Paterno = $request->input('Apellido_Paterno');
         $new->Apellido_Materno = $request->input('Apellido_Materno');
+        $new->Edad = $request->input('Edad');
         $new->Fecha_de_nacimiento = $request->input('Fecha_de_nacimiento');
+        $new->Peso = $request->input('Peso');
+        $new->Estatura = $request->input('Estatura');
+        $new->Telefono = $request->input('Telefono');
+        $new->Correo_Electronico = $request->input('Correo_Electronico');
+        $new->Antecedentes = $request->input('Antecedentes');
+        $new->Antecedentes_Familiares = $request->input('Antecedentes_Familiares');
         $new->save();
 
         return to_route('nuevo');

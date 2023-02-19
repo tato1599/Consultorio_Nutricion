@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\patientController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,7 @@ Route::get('/pacientes/crear',[patientController::class, 'crear'])->name('crear'
 Route::post('/',[patientController::class,'guardar'])->name('guardar');
 Route::view('/nuevoPaciente','nuevoPaciente')->name('nuevo');
 Route::get('/pacientes',[patientController::class,'consultar'])->name('pacientes');
+Route::get('/calendario',[CalendarioController::class,'cita'])->name('calendario');   
 
 Route::middleware([
     'auth:sanctum',
