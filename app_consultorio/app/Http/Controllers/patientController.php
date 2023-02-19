@@ -11,13 +11,10 @@ class patientController extends Controller
 {
     public function consultar(){
 
-        $patient = new Patient();
+        
+        $consultas = Patient::all();
 
-        $consulta = "SELECT * FROM Patients ";
-
-        $guardar = $patient->query($consulta);
-
-        return view('pacientes',['Patients'=>$consulta]);
+        return view('pacientes',['consulta'=>$consultas]);
 
     }
 
@@ -38,9 +35,9 @@ class patientController extends Controller
         $new = new Patient();
 
         $new->Nombre = $request->input('Nombre');
-        $new->Apellido_Paterno = $request->input('ApellidoPaterno');
-        $new->Apellido_Materno = $request->input('ApellidoMaterno');
-        $new->Fecha_de_nacimiento = $request->input('Nacimiento');
+        $new->Apellido_Paterno = $request->input('Apellido_Paterno');
+        $new->Apellido_Materno = $request->input('Apellido_Materno');
+        $new->Fecha_de_nacimiento = $request->input('Fecha_de_nacimiento');
         $new->save();
 
         return to_route('nuevo');

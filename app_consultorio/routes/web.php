@@ -15,7 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/','principal')->name('principal');
-Route::get('/pacientes',[patientController::class,'consultar'])->name('pacientes');
 Route::get('/pacientes/crear',[patientController::class, 'crear'])->name('crear');
 Route::post('/',[patientController::class,'guardar'])->name('guardar');
 Route::view('/nuevoPaciente','nuevoPaciente')->name('nuevo');
+Route::get('/pacientes',[patientController::class,'consultar'])->name('pacientes');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+
+
+
+
+
